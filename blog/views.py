@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
 from django.utils import timezone
 from .models import Post
+
 from .forms import PostForm
 
 ## 여기는 bootstrap 연결 test 
@@ -53,11 +54,3 @@ def post_edit(request, pk):
     else:
         form = PostForm(request.POST, instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
-
-## 여기는 bootstrap 연결 test
-##def index(request):
-##   template = loader.get_template('blog_bs/index.html')
-##   context = {
-##      'latest_question_list': "test",
-##   }
-##   return HttpResponse(template.render(context, request))

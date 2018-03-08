@@ -10,7 +10,6 @@
     </div>
 </div>
  <article class="page">
-
 		<div class="content">
 			<!--사이드 영역-->
 			<div class="side_content">
@@ -27,7 +26,7 @@
 			<div class="main_content">
 				<br>
 				<br>
-				<div class="main_content_name">공지사항</div>
+				<div class="main_content_name">예약 신청</div>
 				<div class="main_content_unit">
 					<table class="content_table" style="width: 90% ">
 						<colgroup>
@@ -56,6 +55,7 @@
 							{% endfor %}
 						</thead>
 					</table>
+
 				</div>
 
 				<a href="/post/new/" class="top-menu"><span><button type="submit" ><h1> 글 추가하기 </h1> </button></span></a>
@@ -65,3 +65,16 @@
 	</article>
 
 {% endblock %}
+
+    <div>
+{% for reservations in reservations %}
+    {{ reservations.author }}
+    {{ reservations.room_number }}
+        <p>return date: {{ reservations.rend_date |date:"Y-m-d"}}</p>
+        <p>return date: {{ reservations.return_date |date:"Y-m-d"}}</p>
+        <h1><a href="">{{ post.author }}</a></h1>
+        <p>{{ Reservation.room_number }}</p>
+{% endfor %}
+{{ reservations.room_number }}
+
+    </div>

@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'blog',
     'disqus',
     'django.contrib.sites',
+    'reservation',
 ]
 DISQUS_WEBSITE_SHORTNAME = 'gnu-aulmaru'
 SITE_ID = 1
