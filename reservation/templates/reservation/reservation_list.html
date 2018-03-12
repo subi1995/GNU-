@@ -2,7 +2,6 @@
 {% load staticfiles %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/style2.css' %}">
-
         <!-- 메뉴바 밑에 사진 -->  
 <div class ="deco">
     <div class="deco_img">       
@@ -34,7 +33,6 @@
 							<col class="subject" width="60%">
 							<col class="writer" width="10%">
 							<col class="date" width="20%">
-
 						</colgroup>
 						<thead>
 							<tr class="content_table_menu">
@@ -42,15 +40,14 @@
 								<th>제목</th>
 								<th>작성자</th>
 								<th>작성일자</th>
-								
 							</tr>
-							{% for post in posts %}
+
+							{% for reservation in reservations %}
 							<tr>
-								<th class="table_text">{{ post.pk }}</th>
-								<th class="table_text"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></th>
-								<th class="table_text">{{ post.author }}</th>
-								<th class="table_text_date">{{post.published_date|date:"Y-m-d"}}</th>
-								
+								<th class="table_text">{{ reservation.pk }}</th>
+								<th class="table_text"><a href="{% url 'reservation_detail' pk_2=reservation.pk %}">{{ reservation.major }}</a></th>
+								<th class="table_text">{{ reservation.reservation_accept }}</th>
+								<th class="table_text_date">{{reservation.updated_date|date:"Y-m-d"}}</th>	
 							</tr>
 							{% endfor %}
 						</thead>
@@ -65,16 +62,3 @@
 	</article>
 
 {% endblock %}
-
-    <div>
-{% for reservations in reservations %}
-    {{ reservations.author }}
-    {{ reservations.room_number }}
-        <p>return date: {{ reservations.rend_date |date:"Y-m-d"}}</p>
-        <p>return date: {{ reservations.return_date |date:"Y-m-d"}}</p>
-        <h1><a href="">{{ post.author }}</a></h1>
-        <p>{{ Reservation.room_number }}</p>
-{% endfor %}
-{{ reservations.room_number }}
-
-    </div>

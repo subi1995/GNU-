@@ -3,7 +3,6 @@ from django.utils import timezone
 # Create your models here.
 
 
-
 # 회의실 예약
 class Reservation (models.Model):
     FirstROOM = 0
@@ -16,7 +15,6 @@ class Reservation (models.Model):
     )
     
     author = models.ForeignKey('auth.User')
-    student_id = models.IntegerField(default = 0)
     tel_num = models.IntegerField()
     major = models.CharField(max_length = 30)
     rend_date = models.DateTimeField()
