@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{% static 'css/detail_style.css' %}">
 <div class ="deco">
     <div class="deco_img">       
-        <a href="/"><img src="{% static 'img/post_list.jpg' %}"  style=" width: 100%; " /></a>
+        <a href="/"><img src="{% static 'img/insert.jpg' %}"  style=" width: 100%; " /></a>
     </div>
 </div>
 
@@ -22,7 +22,7 @@
                     <div>검 색</div>
                 </div>
             </div>
-            
+
             <!--메인 영역-->
             <div class="main_content">
                 <br>
@@ -44,7 +44,19 @@
                     </div> 
 
                     <div class="unit_line_post">
-                        <h1>{{ reservation.rend_date |date:"Y-m-d"}}</h1>
+                        <h1>{{ reservation.author}}</h1>
+                        <h1>{{ reservation.name}}</h1>
+                        <h1>{{ reservation.mafor}}</h1>
+                        <h1>{{ reservation.tel_num}}</h1>
+                        <h1>{{ reservation.num_people}}</h1>
+                        <h1>{{ reservation.rend_date}}</h1>
+                        <h1>{{ reservation.rend_time}}</h1>
+                        <h1>{{ reservation.return_date}}</h1>
+                        <h1>{{ reservation.return_time}}</h1>
+                        <h1>{{ reservation.room_number}}</h1>
+                        <h1>{{ reservation.reservation_accept}}</h1>
+                        <h1>{{ reservation.updated_date |date:"Y-m-d"}}</h1>
+                        <h1>{{ reservation.STATUS.0.1}}</h1>
                     </div>
                 </div>
                 

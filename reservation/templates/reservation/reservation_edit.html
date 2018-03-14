@@ -1,0 +1,132 @@
+{% extends 'reservation/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/detail_style.css' %}">
+<link rel="stylesheet" href="{% static 'css/nodep-date-input-polyfill.dist.js' %}">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+  $( function() {
+    $( "#datepicker1" ).datepicker();
+  } );
+  </script>
+    <script>
+  $( function() {
+    $( "#datepicker2" ).datepicker();
+  } );
+</script>
+
+<div class ="deco">
+    <div class="deco_img">       
+        <a href="/"><img src="{% static 'img/insert.jpg' %}"  style=" width: 100%; " /></a>
+    </div>
+</div>
+
+ <article class="page">
+        <div class="content">
+            <!--사이드 영역-->
+            <div class="side_content">
+                <br>
+                <br>
+                <div class="side_content_name">커뮤니티</div>
+                <div class="side_content_unit">
+                    <div>공지사항</div>
+                    <div>회의실 소개</div>
+                    <div>검 색</div>
+                </div>
+            </div>
+            <!--메인 영역-->
+            <div class="main_content">
+                <br>
+                <br>
+                <div class="main_content_name"><h1>New Reservation</h1></div>
+                <div class="add_post">
+
+   					<form method="POST" class="reservation-form">{% csrf_token %}
+		<!-- 				{{ form.as_p}} -->
+       					{{form.non_field_errors}}
+
+       					<div>
+       						{{form.name.errors}}
+       						<label for="id_name">신청자 이름 :</label>
+       						<input id="id_name" maxlength="10" name="name" tpye="text">
+       					</div>
+       					<div>
+       						{{form.tel_num.errors}}
+       						<label for="id_tel_num">전화번호 :</label>
+   							<input type="text" name="tel_num" id="id_tel_num" />
+       					</div>
+       					<div>
+       						{{form.major.errors}}
+       						<label for="id_major">학 과:</label>
+    						<input type="text" name="major" id="id_major" />
+       					</div>
+       					<div>
+       						{{form.num_people.errors}}
+       						<label for="id_num_people">신청 인원:</label>
+    						<input type="number"  min="1" max="30" name="num_people" id="id_num_people" />
+       					</div>
+       					<div>
+       						<label for="id_room_number">예약 장소:</label><br>
+       						<select id="id_room_number" name="room_number">
+       							<optgroup label="12인 이하">
+									<option value="0">세미나 실</option>       						
+									<option value="1">라운지</option>
+									<option value="2">갤러리</option>	
+       							</optgroup>
+       							<optgroup label="12인 이상">
+									<option value="3">세미나실 + 라운지</option> 
+									<option value="4">라운지 + 갤러리</option>
+									<option value="5">세미나실 + 라운지 + 갤러리</option>	
+       							</optgroup>
+    						</select>
+       					</div>
+
+       					<div>
+       						{{form.rend_date.errors}}
+       						<label for="datepicker1">예약 시간:</label>
+    						<input type="text" name="rend_date" id="datepicker1" />
+    						<select id="id_rend_time" name="rend_time">
+									<option value="0">9:00 ~ 10:00</option>       				
+									<option value="1">10:00 ~ 11:00</option>
+									<option value="2">11:00 ~ 12:00</option>	
+									<option value="3">12:00 ~ 13:00</option> 
+									<option value="4">13:00 ~ 14:00</option>
+									<option value="5">14:00 ~ 15:00</option>
+									<option value="6">15:00 ~ 16:00</option>	
+									<option value="7">16:00 ~ 17:00</option>
+									<option value="8">17:00 ~ 18:00</option>
+									<option value="9">18:00 ~ 19:00</option>
+									<option value="10">19:00 ~ 20:00</option>
+    						</select>
+    					</div>   					
+    					<div>
+    						{{form.return_date.errors}}       						
+       						<label for="datepicker2">반납 시간:</label>
+    						<input type="text" name="return_date" id="datepicker2" />
+
+    						<select id="id_rend_time" name="return_time">
+									<option value="0">9:00 ~ 10:00</option>       				
+									<option value="1">10:00 ~ 11:00</option>
+									<option value="2">11:00 ~ 12:00</option>	
+									<option value="3">12:00 ~ 13:00</option> 
+									<option value="4">13:00 ~ 14:00</option>
+									<option value="5">14:00 ~ 15:00</option>
+									<option value="6">15:00 ~ 16:00</option>	
+									<option value="7">16:00 ~ 17:00</option>
+									<option value="8">17:00 ~ 18:00</option>
+									<option value="9">18:00 ~ 19:00</option>
+									<option value="10">19:00 ~ 20:00</option>
+    						</select>
+       					</div>
+						<button type="submit" class="save btn btn-default">Save</button> 
+    				</form>
+                </div>
+                </div>
+    </article>
+
+{% endblock %}

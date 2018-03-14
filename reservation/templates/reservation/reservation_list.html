@@ -30,7 +30,9 @@
 					<table class="content_table" style="width: 90% ">
 						<colgroup>
 							<col class="num" width="10%">
-							<col class="subject" width="60%">
+							<col class="subject" width="10%">
+							<col class="subject" width="20%">
+							<col class="subject" width="60%">							
 							<col class="writer" width="10%">
 							<col class="date" width="20%">
 						</colgroup>
@@ -45,7 +47,7 @@
 							{% for reservation in reservations %}
 							<tr>
 								<th class="table_text">{{ reservation.pk }}</th>
-								<th class="table_text"><a href="{% url 'reservation_detail' pk_2=reservation.pk %}">{{ reservation.major }}</a></th>
+								<th class="table_text"><a href="{% url 'reservation_detail' pk_2=reservation.pk %}">{{ reservation.name }}</a></th>
 								<th class="table_text">{{ reservation.reservation_accept }}</th>
 								<th class="table_text_date">{{reservation.updated_date|date:"Y-m-d"}}</th>	
 							</tr>
@@ -55,7 +57,7 @@
 
 				</div>
 
-				<a href="/post/new/" class="top-menu"><span><button type="submit" ><h1> 글 추가하기 </h1> </button></span></a>
+				<a href="/reservation/new/" class="top-menu"><span><button type="submit" ><h1> 글 추가하기 </h1> </button></span></a>
 
 			</div>
 		</div>
