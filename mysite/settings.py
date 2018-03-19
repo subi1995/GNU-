@@ -130,6 +130,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
+
+
 #Social_login
 AUTHENTICATION_BACKENDS = [
     'social_core.backends.kakao.KakaoOAuth2',  # <-- 카카오톡
@@ -141,4 +143,4 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',  # <-- Django 시스템 사용자로 로그인
 ]
 
-SOCIAL_AUTH_FACEBOOK_KEY = '1952745621645441'
+SOCIAL_AUTH_FACEBOOK_KEY = '1952745621645'

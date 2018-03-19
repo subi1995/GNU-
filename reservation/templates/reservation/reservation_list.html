@@ -3,28 +3,7 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/style2.css' %}">
         <!-- 메뉴바 밑에 사진 -->  
-        				<script>
-  					window.fbAsyncInit = function() {
-   					FB.init({
-      				appId      : '1952745621645441',
-      				cookie     : true,
-      				xfbml      : true,
-      				version    : 'v2.12'
-    				});
-      
-    				FB.AppEvents.logPageView();   
-      
-  					};
 
-  					(function(d, s, id){
-     				var js, fjs = d.getElementsByTagName(s)[0];
-     				if (d.getElementById(id)) {return;}
-     				js = d.createElement(s); js.id = id;
-     				js.src = "https://connect.facebook.net/en_US/sdk.js";
-     				fjs.parentNode.insertBefore(js, fjs);
-   					}(document, 'script', 'facebook-jssdk'));
-				</script>
-					
   
 <div class ="deco">
     <div class="deco_img">       
@@ -82,19 +61,6 @@
 
 				<a href="/reservation/new/" class="top-menu"><span><button type="submit" ><h1> 글 추가하기 </h1> </button>
 
-
-
-				<div id="fb-root"></div>
-				<script>(function(d, s, id) {
-  					var js, fjs = d.getElementsByTagName(s)[0];
-  					if (d.getElementById(id)) return;
-  					js = d.createElement(s); js.id = id;
-  					js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.12&appId=1952745621645441&autoLogAppEvents=1';
-  					fjs.parentNode.insertBefore(js, fjs);
-				}(document, 'script', 'facebook-jssdk'));</script>	
-				
-				<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
-				
 
 				</span></a>
 
