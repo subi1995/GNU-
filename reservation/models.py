@@ -29,9 +29,8 @@ class Reservation (models.Model):
             (NinethTIME, ("17:00 ~ 18:00")),
             (TenthTIME, ("18:00 ~ 19:00")),
             (EleventhTIME, ("19:00 ~ 20:00")),
-         )
-    
-    author = models.ForeignKey('auth.User')
+         )    
+    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     name = models.CharField(max_length = 10)    
     major = models.CharField(max_length = 30)
     tel_num = models.IntegerField()

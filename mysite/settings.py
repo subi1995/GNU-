@@ -38,12 +38,11 @@ INSTALLED_APPS = [
     'disqus',
     'django.contrib.sites',
     'reservation',
-    'social_django',
 ]
 DISQUS_WEBSITE_SHORTNAME = 'gnu-aulmaru'
 SITE_ID = 1
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
      'django.middleware.common.CommonMiddleware',
@@ -51,7 +50,6 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'social_django.middleware.SocialAuthExceptionMiddleware',  # social_login
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -66,11 +64,9 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-                'social_django.context_processors.backends',  # social_login
-                'social_django.context_processors.login_redirect', # social_login
+                'django.contrib.messages.context_processors.messages',   
             ],
-            'debug':DEBUG,
+  
         },
     },
 ]
@@ -130,17 +126,3 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
-
-
-#Social_login
-AUTHENTICATION_BACKENDS = [
-    'social_core.backends.kakao.KakaoOAuth2',  # <-- 카카오톡
-    'social_core.backends.line.LineOAuth2',  # <-- 라인
-    'social_core.backends.google.GoogleOAuth2',  # <-- 구글
-    'social_core.backends.facebook.FacebookOAuth2',  # <-- 페이스북
-    'social_core.backends.twitter.TwitterOAuth',  # <-- 트위터
-
-    'django.contrib.auth.backends.ModelBackend',  # <-- Django 시스템 사용자로 로그인
-]
-
-SOCIAL_AUTH_FACEBOOK_KEY = '1952745621645'

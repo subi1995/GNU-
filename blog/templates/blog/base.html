@@ -1,54 +1,32 @@
 {% load staticfiles %}
+
 <!DOCTYPE html>
 
 <html>
     <head>
     	<!-- 여기 부트스트랩 테스트 코딩 디바이스 크기에 따라 하는거.-->
     	<meta name="viewport" content="width=device-width, initial-scale=1">
-    	 
+    	 <!-- 항상 최신 버전의 SDK를 사용합니다. -->
+        <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+        <!-- kakao login -->
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
+        <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
         <title>GNU 공과대학 회의실 어울마루</title>
 
         <link rel="stylesheet" href="{% static 'css/blog_2.css' %}">
     </head>
     <body>
-                <script>
-                    window.fbAsyncInit = function() {
-                    FB.init({
-                    appId      : '1952745621645441',
-                    cookie     : true,
-                    xfbml      : true,
-                    version    : 'v2.12'
-                    });
-      
-                    FB.AppEvents.logPageView();   
-      
-                    };
 
-                    (function(d, s, id){
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id)) {return;}
-                    js = d.createElement(s); js.id = id;
-                    js.src = "https://connect.facebook.net/en_US/sdk.js";
-                    fjs.parentNode.insertBefore(js, fjs);
-                    }(document, 'script', 'facebook-jssdk'));
-                </script>
  
     	<!-- 여기 부트스트랩 테스트 코딩 디바이스 크기에 따라 하는거.-->    	
         <div class="page-header">
         	<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
         	{% if user.is_authenticated %}
         	{% endif %}
-                    
-                <div id="fb-root" ></div>
-                <script>(function(d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id)) return;
-                    js = d.createElement(s); js.id = id;
-                    js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.12&appId=1952745621645441&autoLogAppEvents=1';
-                    fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));</script>  
-                
-                <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
         </div>
 
         <!-- 타이틀 로고랑 타이틀-->   
@@ -78,6 +56,6 @@
                     {% endblock %}
                 </div>
             </div>
-        <!-- </div> -->
     </body>
+        <!-- </div> -->
 </html>

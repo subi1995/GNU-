@@ -47,12 +47,14 @@
 							</tr>
 
 							{% for reservation in reservations %}
+							{% if reservation.reservation_accept == True %}
 							<tr>
 								<th class="table_text">{{ reservation.pk }}</th>
 								<th class="table_text"><a href="{% url 'reservation_detail' pk_2=reservation.pk %}">{{ reservation.name }}</a></th>
 								<th class="table_text">{{ reservation.reservation_accept }}</th>
 								<th class="table_text_date">{{reservation.updated_date|date:"Y-m-d"}}</th>	
 							</tr>
+							{% endif%}
 							{% endfor %}
 						</thead>
 					</table>

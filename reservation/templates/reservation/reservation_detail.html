@@ -43,6 +43,8 @@
                         이게뭐게
                     </div> 
 
+                    
+                	
                     <div class="unit_line_post">
                         <h1>{{ reservation.author}}</h1>
                         <h1>{{ reservation.name}}</h1>
@@ -56,9 +58,48 @@
                         <h1>{{ reservation.room_number}}</h1>
                         <h1>{{ reservation.reservation_accept}}</h1>
                         <h1>{{ reservation.updated_date |date:"Y-m-d"}}</h1>
-                        <h1>{{ reservation.STATUS.0.1}}</h1>
+                        <h1 id="test">  </h1>
+                        <!-- <h1 id="test2"> te </h1> -->
+                        <script>
+	                    	var rend_t = {{ reservation.rend_time }}
+	                    	var one = " {{ reservation.STATUS.rend_t }} "
+	                    	var test = document.getElementById("test")
+	                    	// var te = document.getElementById("test2")
+	                    	test.innerHTML = one
+	                    	// " {{ reservation.STATUS.0.1 }} "
+	                    	// te.innerHTML = "{{ reservation.STATUS }}"
+                        </script>
+						{% if reservation.rend_time == 0 %}
+							<h1>9시 ~ 10시 </h1>
+						{% endif%}
+						{% if reservation.rend_time == 1 %}
+							<h1>10시 ~ 11시 </h1>
+						{% endif%}
+						{% if reservation.rend_time == 2 %}
+							<h1>11시 ~ 12시 </h1>
+						{% endif%}
+						{% if reservation.rend_time == 3 %}
+							<h1>12시 ~ 13시 </h1>
+						{% endif%}
+						{% if reservation.rend_time == 4 %}
+							<h1>13시 ~ 14시 </h1>
+						{% endif%}
+						{% if reservation.rend_time == 5 %}
+							<h1>14시 ~ 15시 </h1>
+						{% endif%}
+						{% if reservation.rend_time == 6 %}
+							<h1>15시 ~ 16시 </h1>
+						{% endif%}
+						{% if reservation.rend_time == 7 %}
+							<h1>16시 ~ 17시 </h1>
+						{% endif%}
+						{% if reservation.rend_time == 8 %}
+							<h1>17시 ~ 18시 </h1>
+						{% endif%}
+
                     </div>
                 </div>
+
                 
                 <br/>
                 
