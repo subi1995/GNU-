@@ -3,13 +3,16 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/style2.css' %}">
         <!-- 메뉴바 밑에 사진 -->  
-
+<script type="text/javascript">
+	var reservation_num = 1
+</script>
   
 <div class ="deco">
     <div class="deco_img">       
         <a href="/"><img src="{% static 'img/insert.jpg' %}"  style=" width: 100%; " /></a>
     </div>
 </div>
+
  <article class="page">
 		<div class="content">
 			<!--사이드 영역-->
@@ -29,7 +32,9 @@
 				<br>
 				<div class="main_content_name">예약 신청</div>
 				<div class="main_content_unit">
-					<table class="content_table" style="width: 90% ">
+					<!-- 허락된 예약 리스트 -->
+					<div class = "accecpt_reservation">
+						<table class="content_table" style="width: 90% ">
 						<colgroup>
 							<col class="num" width="10%">
 							<col class="subject" width="10%">
@@ -57,9 +62,44 @@
 							{% endif%}
 							{% endfor %}
 						</thead>
-					</table>
-
+						</table>
+					</div>	
 				</div>
+
+				<div class="main_content_unit">
+					<!-- 허락 되지 않은 예약 리스트 -->
+					<div class = "not_accecpt_reservation">
+						<table class="content_table" style="width: 90% ">
+						<colgroup>
+							<col class="num" width="10%">
+							<col class="subject" width="10%">
+							<col class="subject" width="20%">
+							<col class="subject" width="60%">							
+							<col class="writer" width="10%">
+							<col class="date" width="20%">
+						</colgroup>
+						<thead>
+							<tr class="content_table_menu">
+								<th>번호</th>
+								<th>제목</th>
+								<th>작성자</th>
+								<th>작성일자</th>
+							</tr>
+
+							{% for reservation in reservations %}
+							{% if reservation.reservation_accept == False %}
+							<tr>
+								<th class="table_text">{{ reservation.pk }}</th>
+								<th class="table_text"><a href="{% url 'reservation_detail' pk_2=reservation.pk %}">{{ reservation.name }}</a></th>
+								<th class="table_text">{{ reservation.reservation_accept }}</th>
+								<th class="table_text_date">{{reservation.updated_date|date:"Y-m-d"}}</th>	
+							</tr>
+							{% endif%}
+							{% endfor %}
+						</thead>
+						</table>
+					</div>	
+				</div>				
 
 				<a href="/reservation/new/" class="top-menu"><span><button type="submit" ><h1> 글 추가하기 </h1> </button>
 

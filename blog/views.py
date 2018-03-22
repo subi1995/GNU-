@@ -3,15 +3,13 @@ from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
 from django.utils import timezone
 from .models import Post
-
 from .forms import PostForm
+from django.contrib.auth.decorators import login_required
 
 ## 여기는 bootstrap 연결 test 
 from django.http import HttpResponse
 from django.template import loader
 
-def home(request):
-    return render(request, 'blog/home.html')
 
 def photo(request):
     return render(request, 'blog/photo.html')
@@ -22,12 +20,12 @@ def post_list(request):
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 # pk는 post 번호로 database prime? key 의 약자, 매개변수르 들어온다.
-
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post': post})
 
 # 새로운 postㄹ를 위한 view
+@login_required
 def post_new(request):
     if request.method == "POST":
         form = PostForm(request.POST)
@@ -41,6 +39,7 @@ def post_new(request):
         form = PostForm()
     return render(request, 'blog/post_edit.html', {'form': form})
 
+@login_required
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":

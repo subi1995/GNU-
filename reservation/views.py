@@ -8,7 +8,6 @@ from .forms import ReservationForm
 # Create your views here.
 
 ## Reservation
-
 def Room_Reservation (request):
     reservations = Reservation.objects.all()
     return render (request, 'reservation/reservation_list.html',{'reservations': reservations})
@@ -34,3 +33,24 @@ def reservation_new(request):
         print(request.method, '4')
         form = ReservationForm()
     return render(request, 'reservation/reservation_edit.html', {'form': form})
+
+def reservation_remove(request, pk_2):
+    reservation = get_object_or_404(Reservation,pk = pk_2)
+    reservation.delete()
+    return redirect('reservation/resrervation_list.html')
+
+
+def reservation_edit(request,pk_2):
+    reservation = get_object_or_404(Reservation, pk=pk_2)    
+    if request.method == "POST":
+        form = ReservationForm(instance=reservation)
+        if form.is_valid():
+            reservation = form.save(commit=False)
+            reservation.author = request.user
+            reservation.updated_date = timezone.now()
+            reservation.save()
+            return redirect('reservation_detail', pk_2=reservation.pk)
+    else:
+        form = ReservationForm(instance=reservation)
+    return render(request, 'reservation/reservation_edit.html', {'form': form})
+

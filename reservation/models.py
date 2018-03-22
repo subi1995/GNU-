@@ -39,7 +39,6 @@ class Reservation (models.Model):
     rend_date = models.DateTimeField()
     rend_time = models.SmallIntegerField(choices=STATUS,default = FirstTIME)
 
-    return_date = models.DateTimeField()
     return_time = models.SmallIntegerField(choices=STATUS,default = FirstTIME)
     
     room_number = models.SmallIntegerField()

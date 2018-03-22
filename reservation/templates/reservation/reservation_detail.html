@@ -46,6 +46,8 @@
                     
                 	
                     <div class="unit_line_post">
+                    
+                       
                         <h1>{{ reservation.author}}</h1>
                         <h1>{{ reservation.name}}</h1>
                         <h1>{{ reservation.mafor}}</h1>
@@ -96,6 +98,8 @@
 						{% if reservation.rend_time == 8 %}
 							<h1>17시 ~ 18시 </h1>
 						{% endif%}
+
+                        <a href="{% url 'reservation_remove' pk_2=reservation.pk %}"><span><button type="submit" ><h1> 글 삭제  </h1> </button></span></a>
 
                     </div>
                 </div>
