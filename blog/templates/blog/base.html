@@ -17,36 +17,22 @@
 
         <title>GNU 공과대학 회의실 어울마루</title>
 
-        <link rel="stylesheet" href="{% static 'css/blog_2.css' %}">
+        <link rel="stylesheet" href="/static/css/blog_style.css?ver=213654">
     </head>
     <body> 
-    	<!-- 여기 부트스트랩 테스트 코딩 디바이스 크기에 따라 하는거.-->    	
-        <div class="page-header">
-                          
-        {% if user.is_authenticated %}
-            <a href="{% url 'post_new' %}" class="top-menu"><span ><button type="submit" ><h1> 글 추가하기 </h1> </button></span></a>
-        {% else %}
-            <a href="{% url 'login' %}" class="top-menu"><span><button type="submit" ><h1> 글 추가하기 </h1> </button></span></a>
-        {% endif %}
-        </div>
 
-        <!-- 타이틀 로고랑 타이틀-->   
-        
-        <div class ="title">
-            <div class="title_logo">       
-                <a href="/"><img src="{% static 'img/logo_N.jpg' %}"  style=" width: 100%;" /></a>
-            </div>
-            <div class="title_text">       
-                <h1>GNU 공과대학 회의실 어울마루</h1>
+        <!-- 메뉴바 밑에 사진 -->  
+        <div class ="deco">
+            <div class="deco_img">       
+                <a href="/"><img src="{% static 'img/AUL_MARU.png' %}"  style=" margin-left: 15%;  height: 50%; width: 70%; " /></a>
             </div>
         </div>
-
         <!-- 메뉴 바 1. 공지사항 2. 회의실 소개  3. 검 색-->   
         
         <div id="menu">
-            <li class = "first"><a href="{% url 'post_list' %}">공지사항</a></li>
-            <li class="first"><a href="{% url 'photo' %}">회의실 소개</a></li>
-            <li><a href="{% url 'Room_Reservation' %}">회의실 예약</a></li>
+            <li class = "first"><a href="{% url 'post_list' %}">NOTICE</a></li>
+            <li class="first"><a href="{% url 'photo' %}">AGORA</a></li>
+            <li><a href="{% url 'Room_Reservation' %}">RESERVATION</a></li>
         </div>
 
         <!-- <div class="content container"> -->

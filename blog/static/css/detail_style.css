@@ -1,6 +1,13 @@
 @font-face { 
   font-family: Noto Sans KR; 
   src: url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+  font-family: 'Spinnaker', sans-serif;
+  src: url(//fonts.googleapis.com/css?family=Spinnaker);  
+  font-family: 'Nanum Gothic', sans-serif;    
+  src: url(//fonts.googleapis.com/css?family=Nanum+Gothic);  
+  font-family: 'Itim', cursive;
+  font-family: 'Bungee Inline', cursive; 
+  src: url(//fonts.googleapis.com/css?family=Bungee+Inline|Itim); 
 }
 
 html { height: 100%; font-family: sans-serif; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
@@ -15,7 +22,7 @@ body {
 	background-color: white;
 }
 h1, h2, h3, h4 {
-    font-family: '돋움', cursive;
+   font-family: 'Spinnaker', sans-serif;
 }
 
 .header {
@@ -72,8 +79,8 @@ h1, h2, h3, h4 {
 	width: 80%;
 }
 
-.main_content_name {
-	font-size: 1.5vw;
+.main_content_name {	
+	font-size: 1.3vw;
 	margin-bottom: 2vw;
 }
 

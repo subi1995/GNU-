@@ -113,13 +113,15 @@ div#menu {
 
 /*#################################### Title*/
 .deco{
+    background-color: #DC5E44;
     position: relative;
-    width: 70%;
+    width: 100%;
     margin-top: 0.2vw;
-    margin-left:15%;
-    margin-right: 15%;
+/*    margin-left:15%;
+    margin-right: 15%;*/
 }
 .deco_img{
+    margin-left: 30%;
     position: relative;
     padding: 1vw 0.1vw 1vw;
 }
